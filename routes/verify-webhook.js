@@ -24,18 +24,39 @@ module.exports = function (app, chalk) {
   });
 
   app.get("/messages", async (req, res) => {
-    let messages = await Message.find();
+    let messages = {};
+    try {
+      messages = await Message.find();
+    } catch (e) {
+      console.log("error: ", e);
+    }
     res.send(messages);
   });
 
   app.get("/messages/:id", async (req, res) => {
-    let messages = await Message.find({ _id: req.params.id });
-    res.send(messages);
+    let message = {};
+    try {
+      message = await Message.find({ _id: req.params.id });
+    } catch (e) {
+      console.log("error: ", e);
+    }
+    res.send(message);
   });
 
   app.get("/summary", async (req, res) => {
-    let messages = await Message.find();
-    let users = await UserInfo.find();
+    let messages = {},
+      users = {};
+    try {
+      messages = await Message.find();
+    } catch (e) {
+      console.log("error: ", e);
+    }
+    try {
+      users = await UserInfo.find();
+    } catch (e) {
+      console.log("error: ", e);
+    }
+
     let summary = [];
     users.forEach(function (u) {
       let userMessages = messages.filter(

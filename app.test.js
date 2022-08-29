@@ -1,6 +1,7 @@
 const request = require("supertest");
 const { daysToBirthdate } = require("./controller/messageController");
 const app = require("./app");
+const mongoose = require("mongoose");
 
 describe("GET /", () => {
   it("GET /messages => all messages", async () => {
@@ -24,7 +25,7 @@ describe("GET /", () => {
 
   it("GET /messages/:id => get message by id", async () => {
     return await request(app)
-      .get("/messages/630c201de00d8f662ee8e6c5")
+      .get("/messages/630c97d6bb9f0a8b7a98fcea")
 
       .expect("Content-Type", /json/)
 
@@ -34,7 +35,7 @@ describe("GET /", () => {
         expect(response.body).toEqual(
           expect.arrayContaining([
             expect.objectContaining({
-              _id: "630c201de00d8f662ee8e6c5",
+              _id: "630c97d6bb9f0a8b7a98fcea",
             }),
           ])
         );
@@ -98,4 +99,8 @@ describe("Webhook /", () => {
 
 test("counts days properly", () => {
   expect(daysToBirthdate(new Date("2002-10-29"))).toBeLessThan(366);
+});
+
+afterAll(async () => {
+  await mongoose.disconnect();
 });
