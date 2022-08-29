@@ -16,8 +16,6 @@
 
 ```sh
 git clone https://github.com/mdarud/facebook-birthday-bot
-
-// rename the ".env.example" to ".env"
 ```
 
 ## Install
