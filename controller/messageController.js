@@ -134,7 +134,7 @@ const messageController = async (event) => {
           } else qIndex = -1;
         }
 
-        // Message templates
+        // Message state
         if (!qIndex) {
           messageText = { text: "Hi! What is your first name?" };
         } else if (qIndex === 1) {
@@ -186,7 +186,7 @@ const messageController = async (event) => {
         senderAction(senderID);
         sendMessage(messageText, senderID);
         if (qIndex === 3 && daysToBirthdate(birthDate) === 0)
-          sendMessage({ text: "🎈" }, senderID);
+          sendMessage({ text: "Happy Birthday 🎈" }, senderID);
 
         // Saving user information
         try {
