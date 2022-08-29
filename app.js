@@ -23,9 +23,4 @@ app.use(bodyParser.json());
 // app routes
 require("./routes/verify-webhook")(app);
 
-mongoose
-  .connect(uri)
-  .then(() => console.log("connected to mongodb.."))
-  .catch((err) => console.error("could not connect to mongodb", err));
-
 module.exports = app;
