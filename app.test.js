@@ -1,3 +1,6 @@
+process.env.VERIFY_TOKEN = "birthday-bot";
+process.env.DB_URI =
+  "mongodb+srv://daru:daru@cluster0.jggoz.mongodb.net/BirthdayBot?retryWrites=true&w=majority";
 const request = require("supertest");
 const { daysToBirthdate } = require("./controller/messageController");
 const app = require("./app");
@@ -68,7 +71,7 @@ describe("Webhook /", () => {
   it("GET /webhook => subscribe to webhook", async () => {
     return await request(app)
       .get(
-        "/webhook?hub.verify_token=birthday-bot&hub.challenge=CHALLENGE_ACCEPTED&hub.mode=subscribe"
+        `/webhook?hub.verify_token=${process.env.VERIFY_TOKEN}&hub.challenge=CHALLENGE_ACCEPTED&hub.mode=subscribe`
       )
       .expect(200);
   });

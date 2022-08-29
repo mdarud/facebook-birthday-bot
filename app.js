@@ -5,15 +5,14 @@ const app = express();
 const process = require("process");
 const mongoose = require("mongoose");
 
+require("dotenv").config();
+
 // connecting to database
-const uri =
-  "mongodb+srv://daru:daru@cluster0.jggoz.mongodb.net/BirthdayBot?retryWrites=true&w=majority";
+const uri = process.env.DB_URI;
 mongoose
   .connect(uri)
   .then(() => console.log("connected to mongodb.."))
   .catch((err) => console.error("could not connect to mongodb", err));
-
-require("dotenv").config();
 
 // setup express application
 app.use(morgan("dev")); // log every request to the console.
