@@ -12,12 +12,18 @@
 
 ### ✨ [Demo](https://www.facebook.com/Daru-Birthday-Reminder-109260241911509/)
 
+## Setup
+
+```sh
+git clone https://github.com/mdarud/facebook-birthday-bot
+
+// rename the ".env.example" to ".env"
+```
+
 ## Install
 
 ```sh
 npm install
-
-// rename the ".env.example" to ".env"
 ```
 
 ## Usage
