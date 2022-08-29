@@ -176,7 +176,6 @@ const messageController = async (event) => {
           messageText = { text: "Goodbye 👋" };
         }
 
-        console.log("sending...");
         senderAction(senderID);
         sendMessage(messageText, senderID);
         if (qIndex === 3 && daysToBirthdate(birthDate) === 0)

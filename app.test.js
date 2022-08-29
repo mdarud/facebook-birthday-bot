@@ -71,13 +71,25 @@ describe("Webhook /", () => {
       )
       .expect(200);
   });
-  it("GET /webhook => subscribe to webhook", async () => {
+  it("POST /webhook => bot flow", async () => {
     return await request(app)
       .post("/webhook")
       .send({
         object: "page",
         entry: [
-          { messaging: [{ sender: { id: "029" }, message: "TEST_MESSAGE" }] },
+          {
+            messaging: [
+              {
+                sender: { id: "5351645508205080" },
+                recipient: { id: "109260241911509" },
+                timestamp: 200,
+                message: {
+                  mid: "m_B6Lkv21KEfAc7DZjRF8Eu8iGSqByRsOESJeNsn_6P9prQvDuVlLOTIOFVWhgnC35dR8eK9Bb5uhypBZMb4-w5a",
+                  text: "Hello",
+                },
+              },
+            ],
+          },
         ],
       })
       .expect(200);
