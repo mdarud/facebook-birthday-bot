@@ -11,12 +11,15 @@
 > Facebook messenger bot for counting days till next birthday
 
 ### ✨ [Demo](https://www.facebook.com/Daru-Birthday-Reminder-109260241911509/)
-**Test Account for Demo**  
+
+**Test Account for Demo**
 
 ## Setup
 
 ```sh
 git clone https://github.com/mdarud/facebook-birthday-bot
+
+// rename ".env.example" file to ".env"
 ```
 
 ## Install
