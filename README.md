@@ -11,6 +11,9 @@
 > Facebook messenger bot for counting days till next birthday
 
 ### ✨ [Demo](https://www.facebook.com/Daru-Birthday-Reminder-109260241911509/)
+**Test Account for Demo**  
+email: birthday_wlmzekl_tester@tfbnw.net  
+password: testing123  
 
 ## Setup
 
