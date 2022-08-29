@@ -203,4 +203,4 @@ const messageController = async (event) => {
   );
 };
 
-module.exports = messageController;
+module.exports = { messageController, daysToBirthdate };

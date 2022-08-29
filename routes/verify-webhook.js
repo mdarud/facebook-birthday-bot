@@ -1,4 +1,4 @@
-const messageController = require("../controller/messageController");
+const { messageController } = require("../controller/messageController");
 const UserInfo = require("../models/userInfo");
 const Message = require("../models/messages");
 

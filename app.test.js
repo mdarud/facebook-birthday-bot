@@ -1,5 +1,5 @@
 const request = require("supertest");
-
+const { daysToBirthdate } = require("./controller/messageController");
 const app = require("./app");
 
 describe("GET /", () => {
@@ -63,4 +63,27 @@ describe("GET /", () => {
   });
 });
 
-describe("Webhook /", () => {});
+describe("Webhook /", () => {
+  it("GET /webhook => subscribe to webhook", async () => {
+    return await request(app)
+      .get(
+        "/webhook?hub.verify_token=birthday-bot&hub.challenge=CHALLENGE_ACCEPTED&hub.mode=subscribe"
+      )
+      .expect(200);
+  });
+  it("GET /webhook => subscribe to webhook", async () => {
+    return await request(app)
+      .post("/webhook")
+      .send({
+        object: "page",
+        entry: [
+          { messaging: [{ sender: { id: "029" }, message: "TEST_MESSAGE" }] },
+        ],
+      })
+      .expect(200);
+  });
+});
+
+test("counts days properly", () => {
+  expect(daysToBirthdate(new Date("2002-10-29"))).toBeLessThan(366);
+});
