@@ -1,0 +1,22 @@
+{
+  "name": "facebook-messenger-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "M. Daru Darmakusuma",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19",
+    "request": "^2.88.2",
+    "save": "^2.5.0",
+    "string-similarity": "^4.0.4"
+  }
+}
