@@ -101,7 +101,6 @@ test("counts days properly", () => {
   expect(daysToBirthdate(new Date("2002-10-29"))).toBeLessThan(366);
 });
 
-afterAll((done) => {
-  mongoose.disconnect();
-  done();
+afterAll(async () => {
+  await mongoose.disconnect();
 });
