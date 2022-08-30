@@ -99,8 +99,8 @@ const messageController = async (event) => {
         let bodyObject = JSON.parse(body);
 
         // Check if user already exist
-        let user = {};
-        user = await UserInfo.findOne({ userId: senderID });
+
+        let user = await UserInfo.findOne({ userId: senderID });
         if (user) {
           // Continue the question from prev session
           userName = user.name ? user.name : user.userName;

@@ -105,5 +105,5 @@ test("counts days properly", () => {
 });
 
 afterAll(async () => {
-  await mongoose.disconnect();
+  if (mongoose.connection.readyState === 1) await mongoose.disconnect();
 });
