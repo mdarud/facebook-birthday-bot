@@ -12,9 +12,9 @@
 
 ### ✨ [Demo](https://www.facebook.com/Daru-Birthday-Reminder-109260241911509/)
 
-**Test Account for Demo**
-email: mkgee407@gmail.com
-password: t3sting123
+**Test Account for Demo**  
+email: mkgee407@gmail.com  
+password: t3sting123  
 
 ## Setup
 
