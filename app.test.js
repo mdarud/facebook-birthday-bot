@@ -103,7 +103,3 @@ describe("Webhook /", () => {
 test("counts days properly", () => {
   expect(daysToBirthdate(new Date("2002-10-29"))).toBeLessThan(366);
 });
-
-afterAll(async () => {
-  if (mongoose.connection.readyState === 1) await mongoose.disconnect();
-});
