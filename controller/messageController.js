@@ -80,12 +80,10 @@ const messageController = async (event) => {
   let birthDate = "";
 
   // Saving message to database
-  try {
-    let messageUser = await new Message({
-      message: event,
-    });
-    await messageUser.save();
-  } catch (e) {}
+  let messageUser = await new Message({
+    message: event,
+  });
+  await messageUser.save();
 
   // Get user data
   request(
@@ -102,24 +100,20 @@ const messageController = async (event) => {
 
         // Check if user already exist
         let user = {};
-        try {
-          user = await UserInfo.findOne({ userId: senderID });
-        } catch (e) {}
+        user = await UserInfo.findOne({ userId: senderID });
         if (user) {
           // Continue the question from prev session
           userName = user.name ? user.name : user.userName;
           birthDate = user.birthDate;
           qIndex = user.qIndex;
         } else {
-          try {
-            // Create new user
-            let userInfo = await new UserInfo({
-              userName: bodyObject.first_name,
-              qIndex: 0,
-              userId: senderID,
-            });
-            await userInfo.save();
-          } catch (e) {}
+          // Create new user
+          let userInfo = await new UserInfo({
+            userName: bodyObject.first_name,
+            qIndex: 0,
+            userId: senderID,
+          });
+          await userInfo.save();
         }
 
         let messageText = "Hello!";
@@ -189,23 +183,21 @@ const messageController = async (event) => {
           sendMessage({ text: "Happy Birthday 🎈" }, senderID);
 
         // Saving user information
-        try {
-          user = await UserInfo.findOne({ userId: senderID });
-          if (user) {
-            if (qIndex === 1) {
-              user.name = message.text;
-              qIndex += 1;
-            } else if (qIndex === 2) {
-              user.birthDate = birthDate;
-              qIndex += 1;
-            } else if (qIndex > 3) qIndex = 0;
-            else if (qIndex === -1) qIndex = 2;
-            else qIndex += 1;
+        user = await UserInfo.findOne({ userId: senderID });
+        if (user) {
+          if (qIndex === 1) {
+            user.name = message.text;
+            qIndex += 1;
+          } else if (qIndex === 2) {
+            user.birthDate = birthDate;
+            qIndex += 1;
+          } else if (qIndex > 3) qIndex = 0;
+          else if (qIndex === -1) qIndex = 2;
+          else qIndex += 1;
 
-            user.qIndex = qIndex;
-            await user.save();
-          }
-        } catch (e) {}
+          user.qIndex = qIndex;
+          await user.save();
+        }
       }
     }
   );
