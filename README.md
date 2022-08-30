@@ -12,7 +12,9 @@
 
 ### ✨ [Demo](https://www.facebook.com/Daru-Birthday-Reminder-109260241911509/)
 
-**Test Account for Demo**
+**Test Account for Demo**  
+email: mkgee407@gmail.com  
+password: t3sting123  
 
 ## Setup
 
@@ -37,6 +39,7 @@ npm run start
 ## Run tests
 
 ```sh
+// to test the app running properly in local
 npm run test
 ```
 
